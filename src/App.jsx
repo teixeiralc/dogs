@@ -6,10 +6,12 @@ import './styles/App.css';
 
 // React Components
 import Home from './pages/Home';
+import Login from './pages/Login';
+import User from './pages/User';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import Login from './pages/Login';
 import { UserStorage } from './UserContext';
+import ProtectedRoute from './Components/Helper/ProtectedRoute';
 
 const App = () => {
   return (
@@ -17,7 +19,15 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login/*" element={<Login />} />
+        <Route path="login/*" element={<Login />} />
+        <Route
+          path="conta/*"
+          element={
+            <ProtectedRoute>
+              <User />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
     </UserStorage>
