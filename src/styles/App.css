@@ -43,6 +43,10 @@ input {
   margin: 0 auto;
 }
 
+.main_container {
+  margin-top: 4rem;
+}
+
 .title {
   font-family: var(--type-second);
   line-height: 1;
@@ -61,7 +65,7 @@ input {
   position: absolute;
   bottom: 5px;
   left: -5px;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   z-index: -1;
 }
 

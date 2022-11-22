@@ -24,6 +24,7 @@
       }
     ],
     "react/jsx-props-no-spreading": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "react/prop-types": "off"
   }
 }

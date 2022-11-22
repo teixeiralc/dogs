@@ -37,6 +37,7 @@ const UserPhotoPost = () => {
 
   const imgChange = ({ target }) => {
     setImg({
+      // raw === img that will be sent to the API
       preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0],
     });
