@@ -7,16 +7,21 @@ import Loading from '../Helper/Loading';
 
 import styles from '../../styles/modules/Feed/FeedPhotos.module.css';
 
-const FeedPhotos = ({ setModalPhoto }) => {
+const FeedPhotos = ({ page, user, setModalPhoto, setInfinite }) => {
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
     const fetchPhotos = async () => {
-      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
+      const total = 6; // Amount of photos that will be rendered per page
+      const { url, options } = PHOTOS_GET({ page, total, user });
       const { res, json } = await request(url, options);
+
+      // If the json length < 6, meaning that there're no more photos to be rendered,
+      // setInfinite to false to stop useless fetches from happening
+      if (res && res.ok && json.length < total) setInfinite(false);
     };
     fetchPhotos();
-  }, [request]);
+  }, [request, page, user, setInfinite]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
