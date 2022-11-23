@@ -6,6 +6,7 @@ import LoginSignIn from '../Components/Login/LoginSignIn';
 import LoginLostPassword from '../Components/Login/LoginLostPassword';
 import LoginResetPassword from '../Components/Login/LoginResetPassword';
 import { UserContext } from '../UserContext';
+import NotFound from './NotFound';
 
 import styles from '../styles/modules/Forms/Login.module.css';
 
@@ -21,6 +22,7 @@ const Login = () => {
           <Route path="cadastro" element={<LoginSignIn />} />
           <Route path="forgot" element={<LoginLostPassword />} />
           <Route path="resetar" element={<LoginResetPassword />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </section>
