@@ -18,7 +18,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto }) => {
         onKeyDown={setPhotoForModalOnKeyDown}
         type="button"
       >
-        <Image src={photo.src} alt={photo.title} className={styles.img} />
+        <Image src={photo.src} alt={photo.title} />
         <span className={styles.views}>{photo.acessos}</span>
       </button>
     </li>
