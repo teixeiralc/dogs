@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import User from './pages/User';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Photo from './Components/Photo/Photo';
 import { UserStorage } from './UserContext';
 import ProtectedRoute from './Components/Helper/ProtectedRoute';
 
@@ -28,6 +29,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="foto/:id" element={<Photo />} />
       </Routes>
       <Footer />
     </UserStorage>

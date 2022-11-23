@@ -6,12 +6,12 @@ import { UserContext } from '../../UserContext';
 import PhotoDelete from './PhotoDelete';
 import Image from '../Helper/Image';
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, singular }) => {
   const { photo, comments } = data;
   const user = React.useContext(UserContext);
 
   return (
-    <div className={styles.photo}>
+    <div className={`${styles.photo} ${singular ? styles.singular : ''}`}>
       <div className={styles.img}>
         <Image src={photo.src} alt={photo.title} />
       </div>
@@ -38,7 +38,7 @@ const PhotoContent = ({ data }) => {
           </ul>
         </div>
       </div>
-      <PhotoComments id={photo.id} comments={comments} />
+      <PhotoComments singular={singular} id={photo.id} comments={comments} />
     </div>
   );
 };
