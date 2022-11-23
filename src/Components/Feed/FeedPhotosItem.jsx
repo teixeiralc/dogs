@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../styles/modules/Feed/FeedPhotosItem.module.css';
+import Image from '../Helper/Image';
 
 const FeedPhotosItem = ({ photo, setModalPhoto }) => {
   const setPhotoForModal = () => {
@@ -17,7 +18,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto }) => {
         onKeyDown={setPhotoForModalOnKeyDown}
         type="button"
       >
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title} className={styles.img} />
         <span className={styles.views}>{photo.acessos}</span>
       </button>
     </li>
