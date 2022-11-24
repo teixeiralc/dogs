@@ -91,3 +91,9 @@ input {
 .AppBody {
   flex: 1;
 }
+
+/* Victory */
+
+.VictoryContainer {
+  height: initial !important;
+}
