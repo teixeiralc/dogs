@@ -21,3 +21,9 @@
   height: 0;
   padding-bottom: 100%;
 }
+
+@media screen and (max-width: 40rem) {
+  .photo_post {
+    grid-template-columns: 1fr;
+  }
+}
