@@ -12,7 +12,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto }) => {
   };
 
   return (
-    <li className={styles.photo}>
+    <li className={`${styles.photo} feed_photos_item`}>
       <button
         onClick={setPhotoForModal}
         onKeyDown={setPhotoForModalOnKeyDown}

@@ -36,7 +36,7 @@ const UserHeaderNav = () => {
       )}
 
       <nav
-        className={`${mobile ? styles.nav_mobile : styles.nav} ${
+        className={`${mobile ? styles.nav_mobile : 'user_header_nav'} ${
           mobileMenu && styles.nav_mobileActive
         }`}
       >
