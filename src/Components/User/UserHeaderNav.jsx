@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { UserContext } from '../../UserContext';
+import { useDispatch } from 'react-redux';
+import { userLogout } from '../../store/user';
 import useMedia from '../../Hooks/useMedia';
 
 // SVG's
@@ -12,9 +13,9 @@ import { ReactComponent as Sair } from '../../Assets/sair.svg';
 import styles from '../../styles/modules/User/UserHeaderNav.module.css';
 
 const UserHeaderNav = () => {
+  const dispatch = useDispatch();
   const mobile = useMedia('(max-width: 40rem)');
   const [mobileMenu, setMobileMenu] = React.useState(false);
-  const { userLogout } = React.useContext(UserContext);
 
   // Will hide the mobile menu when the user gets redirected to the selected page
   const { pathname } = useLocation();
@@ -52,7 +53,7 @@ const UserHeaderNav = () => {
           <AddFoto />
           {mobile && 'Adicionar Foto'}
         </NavLink>
-        <button type="button" onClick={userLogout}>
+        <button type="button" onClick={() => dispatch(userLogout())}>
           <Sair />
           {mobile && 'Sair'}
         </button>

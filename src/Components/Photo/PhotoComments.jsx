@@ -1,14 +1,13 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { UserContext } from '../../UserContext';
+import { useSelector } from 'react-redux';
 import PhotoCommentsForm from './PhotoCommentsForm';
-
 import styles from '../../styles/modules/Photo/PhotoComments.module.css';
 
 const PhotoComments = (props) => {
   const [comments, setComments] = React.useState(() => props.comments);
   const commentsSection = React.useRef(null);
-  const { login } = React.useContext(UserContext);
+  const { data: login } = useSelector((state) => state.user);
 
   React.useEffect(() => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
@@ -18,7 +17,9 @@ const PhotoComments = (props) => {
     <>
       <ul
         ref={commentsSection}
-        className={`${styles.comments} ${props.single ? styles.single : ''}`}
+        className={`${styles.comments} ${
+          props.singular ? styles.singular : ''
+        }`}
       >
         {comments.map((comment) => (
           <li key={comment.comment_ID}>
@@ -29,7 +30,7 @@ const PhotoComments = (props) => {
       </ul>
       {login && (
         <PhotoCommentsForm
-          single={props.single}
+          singular={props.singular}
           id={props.id}
           setComments={setComments}
         />

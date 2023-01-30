@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { UserContext } from '../../UserContext';
 import PhotoComments from './PhotoComments';
 import PhotoDelete from './PhotoDelete';
 import Image from '../Helper/Image';
 import styles from '../../styles/modules/Photo/PhotoContent.module.css';
 
-const PhotoContent = ({ single }) => {
+const PhotoContent = ({ singular }) => {
   const { photo, comments } = useSelector((state) => state.photo.data);
-  const user = React.useContext(UserContext);
+  const { user } = useSelector((state) => state);
 
   return (
-    <div className={`${styles.photo} ${single ? styles.single : ''}`}>
+    <div className={`${styles.photo} ${singular ? styles.singular : ''}`}>
       <div className={styles.img}>
         <Image src={photo.src} alt={photo.title} />
       </div>
@@ -39,7 +38,7 @@ const PhotoContent = ({ single }) => {
           </ul>
         </div>
       </div>
-      <PhotoComments single={single} id={photo.id} comments={comments} />
+      <PhotoComments singular={singular} id={photo.id} comments={comments} />
     </div>
   );
 };

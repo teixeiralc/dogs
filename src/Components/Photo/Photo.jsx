@@ -23,7 +23,7 @@ const Photo = () => {
     return (
       <section className="container mainContainer">
         <Head title={data.photo.title} />
-        <PhotoContent single />
+        <PhotoContent singular />
       </section>
     );
   return null;
