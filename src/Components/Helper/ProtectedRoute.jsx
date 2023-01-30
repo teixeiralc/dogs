@@ -1,11 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { UserContext } from '../../UserContext';
 
 const ProtectedRoute = ({ children }) => {
-  const { login } = React.useContext(UserContext);
+  const { data: login } = useSelector((state) => state.user);
 
-  // If the user isn't logged in, navigate to the login page
   return login ? children : <Navigate to="/login" />;
 };
 
