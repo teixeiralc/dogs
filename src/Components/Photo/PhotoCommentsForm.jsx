@@ -6,7 +6,7 @@ import Error from '../Helper/Error';
 
 import styles from '../../styles/modules/Photo/PhotoCommentsForm.module.css';
 
-const PhotoCommentsForm = ({ id, setComments, singular }) => {
+const PhotoCommentsForm = ({ id, setComments, single }) => {
   const [comment, setComment] = React.useState('');
   const { request, error } = useFetch();
 
@@ -22,7 +22,7 @@ const PhotoCommentsForm = ({ id, setComments, singular }) => {
 
   return (
     <form
-      className={`${styles.form} ${singular ? styles.singular : ''}`}
+      className={`${styles.form} ${single ? styles.single : ''}`}
       onSubmit={fetchComment}
     >
       <textarea

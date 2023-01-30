@@ -15,7 +15,6 @@ const Loading = () => {
 
     const interval = setInterval(updateStep, 300);
 
-    // Clearing the setInterval to prevent memory leak when the element unmounts
     return () => clearInterval(interval);
   }, []);
 
