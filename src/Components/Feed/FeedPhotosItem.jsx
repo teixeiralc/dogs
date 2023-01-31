@@ -1,14 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchPhoto } from '../../store/photo';
+import { openModal } from '../../store/ui';
 import styles from '../../styles/modules/Feed/FeedPhotosItem.module.css';
 import Image from '../Helper/Image';
 
-const FeedPhotosItem = ({ photo, setModalPhoto }) => {
+const FeedPhotosItem = ({ photo }) => {
+  const dispatch = useDispatch();
+
   const setPhotoForModal = () => {
-    setModalPhoto(photo);
+    dispatch(openModal());
+    dispatch(fetchPhoto(photo.id));
   };
 
   const setPhotoForModalOnKeyDown = (e) => {
-    if (e.keyCode === 13) setModalPhoto(photo);
+    if (e.keyCode === 13) {
+      dispatch(openModal());
+      dispatch(fetchPhoto(photo.id));
+    }
   };
 
   return (
