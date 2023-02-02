@@ -105,6 +105,13 @@ input {
   grid-row: span 2;
 }
 
+@media (max-width: 40rem) {
+  .feed_photos_item:nth-child(2) {
+    grid-column: initial;
+    grid-row: initial;
+  }
+}
+
 /* User Nav */
 
 .user_header_nav {
